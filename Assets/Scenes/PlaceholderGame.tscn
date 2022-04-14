@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Sprites/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Sprites/Player.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scripts/Movement.gd" type="Script" id=3]
+[ext_resource path="res://Assets/UI/PauseMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/UI/GUI.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -14,6 +16,7 @@ format = 1
 tile_data = PoolIntArray( 65547, 0, 0, 131075, 0, 0, 131082, 0, 0, 131083, 1, 0, 196611, 1, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 1, 0, 196619, 1, 0, 196621, 0, 0, 196622, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262157, 1, 0, 262158, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327693, 1, 0, 327694, 1, 0, 393216, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 524289, 0, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 118.166, 0 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
@@ -26,3 +29,11 @@ scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
