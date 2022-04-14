@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	
 	visible = false
 
 var is_paused = false setget set_is_paused
@@ -10,6 +11,7 @@ func _unhandled_input(event):
 		self.is_paused = !is_paused
 
 func set_is_paused(value):
+	get_node("PlaceholderBackground/CenterContainer/VBoxContainer/ResumeBtn").grab_focus()
 	is_paused = value
 	get_tree().paused = is_paused
 	visible = is_paused
