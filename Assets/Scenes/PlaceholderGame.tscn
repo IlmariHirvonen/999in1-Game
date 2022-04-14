@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/tilemap.tres" type="TileSet" id=1]
-[ext_resource path="res://Assets/Player.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Movement.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sprites/tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Sprites/Player.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Scripts/Movement.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
