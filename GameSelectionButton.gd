@@ -1,19 +1,7 @@
 extends Button
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	grab_focus()
-#	Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	grab_focus() #grabs focus so menu can be interacted with using arrow keys
+	
 func _pressed():
 	get_tree().change_scene("res://Assets/Scenes/PlaceholderGame.tscn")
