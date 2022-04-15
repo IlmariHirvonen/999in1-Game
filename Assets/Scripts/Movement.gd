@@ -1,19 +1,39 @@
 extends KinematicBody2D
 
+var grace_frames = 7
+var jump_buffer_frames = 4
+var time_start = 0
+var grounded_time = 0
+var jump_buffer = 0
+
+var has_jumped = false
 
 const UP = Vector2(0,-1)
 const GRAV = 40
+const LGRAV = 20
 const FALLSPEED = 800
+const LFALLSPEED = 400
 const MAXSPEED = 300
 
 var motion = Vector2()
 func _ready():
-	pass 
+	time_start = current_time()
+
+
 
 func _physics_process(delta):
-	motion.y += GRAV
-	if(motion.y > FALLSPEED):
-		motion.y = FALLSPEED
+	if is_on_floor():
+		has_jumped = false
+		grounded_time = current_time() + delta * grace_frames * 1000
+	
+	if Input.is_action_pressed("jump"):
+		motion.y += LGRAV
+		if(motion.y > FALLSPEED):
+			motion.y = FALLSPEED
+	else:
+		motion.y += GRAV
+		if(motion.y > FALLSPEED):
+			motion.y = FALLSPEED
 		
 	
 	if Input.is_action_pressed("right"):
@@ -25,7 +45,17 @@ func _physics_process(delta):
 		motion.x = 0
 		
 	if Input.is_action_just_pressed("jump"):
-		motion.y = -MAXSPEED*3
-		motion.y = -MAXSPEED*3
+		jump_buffer = current_time() + delta*jump_buffer_frames*1000 
+		
+	if jump_buffer > current_time() && grounded_time > current_time() && !has_jumped:
+		grounded_time += 0.1
+		has_jumped = true
+		motion.y = -MAXSPEED*2
+
 
 	motion = move_and_slide(motion, UP)
+
+
+func current_time():
+	var temp_time = OS.get_system_time_msecs()
+	return temp_time
