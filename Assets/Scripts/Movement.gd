@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+onready var camera = get_parent().get_node("Camera2D")
+onready var player = get_parent().get_node("Player")
+
 var grace_frames = 7
 var jump_buffer_frames = 4
 var time_start = 0
@@ -19,9 +22,15 @@ var motion = Vector2()
 func _ready():
 	time_start = current_time()
 
-
+	
+func _process(delta):
+	if camera.position.x < player.position.x:
+		camera.position.x = player.position.x
+	elif motion.x > 0 && (camera.position.x-player.position.x) != 0 &&(camera.position.x-player.position.x) < 150 :
+		camera.position.x += MAXSPEED*0.9/((camera.position.x-player.position.x))
 
 func _physics_process(delta):
+
 	if is_on_floor():
 		has_jumped = false
 		grounded_time = current_time() + delta * grace_frames * 1000
