@@ -10,15 +10,10 @@ var time_start = 0
 var grounded_time = 0
 var jump_buffer = 0
 
-var camera_offset = 0
-# Used to prevent camera from moving forwards when shuffeling
-var frames_since_moving = 0 
-# Used to set the amount of frames to wait
-var frames_before_camera_movement = 30
-
-var max_camera_offset = -150
-
+var camera_offset = 80
 var has_jumped = false
+
+
 
 const UP = Vector2(0,-1)
 const GRAV = 40
@@ -37,37 +32,12 @@ func _process(delta):
 	
 	if camera.position.x < player.position.x:
 		camera.position.x = player.position.x
-		
-	else:
-		camera_offset = max(player.position.x - camera.position.x, max_camera_offset)
 
-			
-		if camera_offset < 0 && Input.is_action_pressed("right"):
-			print(camera_offset)
-			frames_since_moving += 1
-			if frames_since_moving > frames_before_camera_movement:
-				pass
-			else:
-				camera_offset += frames_since_moving/60
-				camera.position.x = player.position.x - camera_offset
-		else: 
-			#camera.position.x = player.position.x + camera_offset
-			frames_since_moving = 0
-		# Wait some time bafore recentering the camera
-			#Recenter the camera slowly
-		
-	"""if(camera.position.x < player.position.x + max_camera_offset):
-		camera.position.x = player.position.x + camera_offset
-	else:
-		camera.position.x = player.position.x + camera_offset
-	if frames_since_moving < frames_before_camera_movement:
-			camera_offset = max_camera_offset
-	elif camera_offset > 0:
-		camera_offset -= 10"""
 		
 	
-	#elif (camera.position.x-player.position.x) != 0:
-	#	camera_offset -= MAXSPEED*0.9/((camera.position.x-player.position.x))
+	elif motion.x > 0 && (camera.position.x-player.position.x) != 0 &&(camera.position.x-player.position.x) < camera_offset :
+		camera.position.x += MAXSPEED*0.85/((camera.position.x-player.position.x))
+
 
 func _physics_process(delta):
 
