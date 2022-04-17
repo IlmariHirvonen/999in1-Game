@@ -16,6 +16,8 @@ var frames_since_moving = 0
 # Used to set the amount of frames to wait
 var frames_before_camera_movement = 30
 
+var max_camera_offset = -150
+
 var has_jumped = false
 
 const UP = Vector2(0,-1)
@@ -32,16 +34,40 @@ func _ready():
 
 	
 func _process(delta):
+	
 	if camera.position.x < player.position.x:
+		camera.position.x = player.position.x
+		
+	else:
+		camera_offset = max(player.position.x - camera.position.x, max_camera_offset)
+
+			
+		if camera_offset < 0 && Input.is_action_pressed("right"):
+			print(camera_offset)
+			frames_since_moving += 1
+			if frames_since_moving > frames_before_camera_movement:
+				pass
+			else:
+				camera_offset += frames_since_moving/60
+				camera.position.x = player.position.x - camera_offset
+		else: 
+			#camera.position.x = player.position.x + camera_offset
+			frames_since_moving = 0
+		# Wait some time bafore recentering the camera
+			#Recenter the camera slowly
+		
+	"""if(camera.position.x < player.position.x + max_camera_offset):
 		camera.position.x = player.position.x + camera_offset
-	
-	
-
-
+	else:
+		camera.position.x = player.position.x + camera_offset
 	if frames_since_moving < frames_before_camera_movement:
-		camera_offset = 250
-	elif motion.x > 0 && (camera.position.x-player.position.x) != 0 &&(camera.position.x-player.position.x) < 150 :
-		camera_offset -= MAXSPEED*0.9/((camera.position.x-player.position.x))
+			camera_offset = max_camera_offset
+	elif camera_offset > 0:
+		camera_offset -= 10"""
+		
+	
+	#elif (camera.position.x-player.position.x) != 0:
+	#	camera_offset -= MAXSPEED*0.9/((camera.position.x-player.position.x))
 
 func _physics_process(delta):
 
@@ -60,13 +86,10 @@ func _physics_process(delta):
 		
 	
 	if Input.is_action_pressed("right"):
-		frames_since_moving += 1
 		motion.x = MAXSPEED
 	elif Input.is_action_pressed("left"):
-		frames_since_moving += 1
 		motion.x = -MAXSPEED
 	else:
-		frames_since_moving = 0
 		motion.x = 0
 		
 	if Input.is_action_just_pressed("jump"):
