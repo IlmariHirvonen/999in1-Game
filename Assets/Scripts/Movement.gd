@@ -11,6 +11,8 @@ var jump_buffer = 0
 
 var has_jumped = false
 
+var camera_offset = 80
+
 const UP = Vector2(0,-1)
 const GRAV = 40
 const LGRAV = 20
@@ -26,8 +28,8 @@ func _ready():
 func _process(delta):
 	if camera.position.x < player.position.x:
 		camera.position.x = player.position.x
-	elif motion.x > 0 && (camera.position.x-player.position.x) != 0 &&(camera.position.x-player.position.x) < 150 :
-		camera.position.x += MAXSPEED*0.9/((camera.position.x-player.position.x))
+	elif motion.x > 0 && (camera.position.x-player.position.x) != 0 &&(camera.position.x-player.position.x) < camera_offset :
+		camera.position.x += MAXSPEED*0.85/((camera.position.x-player.position.x))
 
 func _physics_process(delta):
 
