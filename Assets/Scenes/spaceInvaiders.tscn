@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Scenes/SI-Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/SI-Enemy.tscn" type="PackedScene" id=3]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Grass.png-30a07775470ed69bd09e5033242ad86f.stex"
+path="res://.import/SI-pelaaja.png-56d2b91483fa693683f2689d59ebb72d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Grass.png"
-dest_files=[ "res://.import/Grass.png-30a07775470ed69bd09e5033242ad86f.stex" ]
+source_file="res://Assets/Sprites/SI-pelaaja.png"
+dest_files=[ "res://.import/SI-pelaaja.png-56d2b91483fa693683f2689d59ebb72d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
