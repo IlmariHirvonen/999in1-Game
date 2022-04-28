@@ -26,15 +26,21 @@ Pelimoottorina käytetään Godot:ia, SCM(source control manager):ina on git ja 
 
 ### Pieni git cheat sheet
 bash navigaatio:
+
 ls | listaa tiedostot
+
 cd kansion_nimi | menee nimettyyn kansioon
 
 git juttuja:
 
 git                    | kertoo kaikki komennot
+
 git status            |listaa kaikki muutokset ja onko ne trackatty
 
 muutosten laittaminen githubiin:
+
 git add .              | lisää kaikki muutokset
+
 git commit -m "viesti" | committaa kaikki lisätyt muutokset
+
 git push               | Laittaa kaikki muutokset githubiin 

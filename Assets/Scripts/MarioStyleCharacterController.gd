@@ -10,17 +10,17 @@ var time_start = 0
 var grounded_time = 0
 var jump_buffer = 0
 
-var camera_offset = 80
+var camera_offset = -800
 var has_jumped = false
 
 
 
 const UP = Vector2(0,-1)
-const GRAV = 40
-const LGRAV = 20
-const FALLSPEED = 800
-const LFALLSPEED = 400
-const MAXSPEED = 300
+const GRAV = 60
+const LGRAV = 30
+const FALLSPEED = 1400
+const LFALLSPEED = 600
+const MAXSPEED = 500
 
 
 var motion = Vector2()
@@ -30,8 +30,8 @@ func _ready():
 	
 func _process(delta):
 	
-	if camera.position.x < player.position.x:
-		camera.position.x = player.position.x
+	if camera.position.x < player.position.x-1744/2:
+		camera.position.x = player.position.x-1744/2
 
 		
 	
