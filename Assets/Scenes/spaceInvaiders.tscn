@@ -5,6 +5,175 @@
 
 [node name="World" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
+[node name="Enemy5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 227.556, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 265.397, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 304.078, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 341.918, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 378.918, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 416.758, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 455.439, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 493.279, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 533.026, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 570.867, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy15" parent="." instance=ExtResource( 3 )]
+position = Vector2( 609.548, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy16" parent="." instance=ExtResource( 3 )]
+position = Vector2( 647.388, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy17" parent="." instance=ExtResource( 3 )]
+position = Vector2( 684.388, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy18" parent="." instance=ExtResource( 3 )]
+position = Vector2( 722.228, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy19" parent="." instance=ExtResource( 3 )]
+position = Vector2( 760.909, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy20" parent="." instance=ExtResource( 3 )]
+position = Vector2( 798.75, 94.4874 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy21" parent="." instance=ExtResource( 3 )]
+position = Vector2( 227.556, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy22" parent="." instance=ExtResource( 3 )]
+position = Vector2( 265.397, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy23" parent="." instance=ExtResource( 3 )]
+position = Vector2( 304.078, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy24" parent="." instance=ExtResource( 3 )]
+position = Vector2( 341.918, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy25" parent="." instance=ExtResource( 3 )]
+position = Vector2( 378.918, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy26" parent="." instance=ExtResource( 3 )]
+position = Vector2( 416.758, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 455.439, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy28" parent="." instance=ExtResource( 3 )]
+position = Vector2( 493.279, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy29" parent="." instance=ExtResource( 3 )]
+position = Vector2( 533.026, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy30" parent="." instance=ExtResource( 3 )]
+position = Vector2( 570.867, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy31" parent="." instance=ExtResource( 3 )]
+position = Vector2( 609.548, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy32" parent="." instance=ExtResource( 3 )]
+position = Vector2( 647.388, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy37" parent="." instance=ExtResource( 3 )]
+position = Vector2( 378.918, 177.926 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy38" parent="." instance=ExtResource( 3 )]
+position = Vector2( 416.758, 177.926 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy39" parent="." instance=ExtResource( 3 )]
+position = Vector2( 455.439, 177.926 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy40" parent="." instance=ExtResource( 3 )]
+position = Vector2( 493.279, 177.926 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy41" parent="." instance=ExtResource( 3 )]
+position = Vector2( 533.026, 177.926 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy42" parent="." instance=ExtResource( 3 )]
+position = Vector2( 570.867, 177.926 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy43" parent="." instance=ExtResource( 3 )]
+position = Vector2( 609.548, 177.926 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy44" parent="." instance=ExtResource( 3 )]
+position = Vector2( 647.388, 177.926 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy33" parent="." instance=ExtResource( 3 )]
+position = Vector2( 684.388, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy34" parent="." instance=ExtResource( 3 )]
+position = Vector2( 722.228, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy35" parent="." instance=ExtResource( 3 )]
+position = Vector2( 760.909, 136.914 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemy36" parent="." instance=ExtResource( 3 )]
+position = Vector2( 798.75, 136.914 )
+scale = Vector2( 0.5, 0.5 )
