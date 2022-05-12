@@ -25,7 +25,8 @@ func _on_ResumeBtn_pressed():
 
 func _on_RestartBtn_pressed():
 	set_is_paused(false)
-	get_tree().change_scene("res://Assets/Scenes/PlaceholderGame.tscn")
+	var scene_path = get_tree().current_scene.filename
+	get_tree().change_scene(scene_path)
 
 
 func _on_QuitBtn_pressed():
