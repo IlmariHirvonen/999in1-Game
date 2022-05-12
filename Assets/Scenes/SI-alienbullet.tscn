@@ -6,9 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.15017, 8.05425 )
 
-[node name="Alienbullet" type="KinematicBody2D"]
-
-[node name="Alienbullet" type="Node2D" parent="."]
+[node name="Alienbullet" type="Node2D"]
 
 [node name="shot" type="Area2D" parent="."]
 script = ExtResource( 1 )
@@ -16,7 +14,7 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shot"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="shot"]
 scale = Vector2( 1, 2 )
 texture = ExtResource( 2 )
-[connection signal="body_entered" from="shot" to="shot" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="shot" to="shot" method="_on_shot_body_entered"]

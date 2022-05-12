@@ -10,7 +10,7 @@ extents = Vector2( 30.0229, 25.1176 )
 position = Vector2( 524.681, 539.547 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Player" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4.8388 )
 shape = SubResource( 1 )
 

@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Scenes/mainmenuButton.gd" type="Script" id=1]
+
+[node name="World" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.12247
+margin_bottom = 1.12244
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0298
+margin_top = -52.1529
+margin_right = 188.97
+margin_bottom = 76.8471
+text = "GAME OVER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mainmenuButton" type="Button" parent="."]
+margin_left = 441.98
+margin_top = 329.53
+margin_right = 564.98
+margin_bottom = 373.53
+text = "Main Menu"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
