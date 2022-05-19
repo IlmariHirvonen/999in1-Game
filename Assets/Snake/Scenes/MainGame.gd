@@ -38,9 +38,35 @@ func draw_snake():
 				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(3,0))
 			if head_dir == 'bottom':
 				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, true, false, Vector2(3,0))
-		#Jatka tailista 51min
+		elif block_index == snake_body.size() -1:
+			var tail_dir = relation2(snake_body[-1],snake_body[-2])
+			if tail_dir == 'right':
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(0,0))
+			if tail_dir == 'left':
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, true, false, false, Vector2(0,0))
+			if tail_dir == 'top':
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, true, false, Vector2(0,1))
+			if tail_dir == 'bottom':
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(0,1)) 
+		
 		else:
-			$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(8,0))
+			var previous_block = snake_body[block_index + 1] - block
+			var next_block = snake_body[block_index - 1] - block
+			
+			if previous_block.x == next_block.x:
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(4,1))
+			elif previous_block.y == next_block.y:
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(4,0))
+			else:
+				if previous_block.x == -1 and next_block.y == -1 or next_block.x == -1 and previous_block.y == -1:
+					$SnakeApple.set_cell(block.x, block.y, SNAKE, true, true, false, Vector2(5,0))
+				if previous_block.x == -1 and next_block.y == 1 or next_block.x == -1 and previous_block.y == 1:
+					$SnakeApple.set_cell(block.x, block.y, SNAKE, true, false, false, Vector2(5,0))
+				if previous_block.x == 1 and next_block.y == -1 or next_block.x == 1 and previous_block.y == -1:
+					$SnakeApple.set_cell(block.x, block.y, SNAKE, false, true, false, Vector2(5,0))
+				if previous_block.x == 1 and next_block.y == 1 or next_block.x == 1 and previous_block.y == 1:
+					$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(5,0))
+				
 		
 func relation2(first_block:Vector2, second_block:Vector2):
 	var block_relation = second_block - first_block
@@ -99,6 +125,8 @@ func check_apple_eaten():
 	if apple_pos == snake_body[0]:
 		apple_pos = place_apple()
 		add_apple = true
+		get_tree().call_group('ScoreGroup','update_score',snake_body.size())
+		$CrunchSound.play()
 		
 func check_game_over():
 	var head = snake_body[0]
@@ -122,3 +150,5 @@ func _on_SnakeTick_timeout():
 	
 func _process(delta):
 	check_game_over()
+	if apple_pos in snake_body:
+		apple_pos = place_apple()
