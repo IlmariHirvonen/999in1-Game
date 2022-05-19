@@ -11,13 +11,11 @@ const FALLSPEED = 1400
 var motion = Vector2(0,0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audio_stream_player = get_node("AudioStreamPlayer")
 	pass # Replace with function body.
 
 
 
-func _process(delta):
-	pass
-	
 func _physics_process(delta):
 	motion.x = SPEED
 	motion.y += GRAV
@@ -29,9 +27,16 @@ func _physics_process(delta):
 	if collision:
 		motion = motion.slide(collision.normal)
 		if collision.normal == Vector2(0,1):
-			audio_stream_player.play()
+			emit_signal("death")
 			queue_free()
 		
+signal death
 	
-	#get_node("KillCollider").
+
+
+
+
+func _on_KinematicBody2D_death():
+	var death_sound_player = get_node("/root/World/EnemyDeathSound")
+	death_sound_player.play()
 

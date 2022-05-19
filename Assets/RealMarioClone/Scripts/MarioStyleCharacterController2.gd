@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var animation_tree = $AnimationTree
 onready var audio_stream_player = $AudioStreamPlayer
+onready var death_sound = $DeathSound
 onready var state_machine = animation_tree.get("parameters/playback")
 
 onready var camera = get_parent().get_node("Camera2D")
@@ -38,7 +39,7 @@ func _ready():
 
 	
 func _process(delta):
-
+	
 	
 	if camera.position.x < player.position.x-1744/2:
 		camera.position.x = player.position.x-1744/2
@@ -47,17 +48,29 @@ func _process(delta):
 	
 	elif motion.x > 0 && (camera.position.x-player.position.x) != 0 &&(camera.position.x-player.position.x) < camera_offset :
 		camera.position.x += MAXSPEED*0.85/((camera.position.x-player.position.x))
-
-
+var dead = false
+var death_time = 0
+signal death
+func _on_Player_death():
+	pass
+	
 func _physics_process(delta):
-
+	if dead:
+		if (current_time() - death_time) > 1000:
+			var scene_path = get_tree().current_scene.filename
+			get_tree().change_scene(scene_path)
+	
+	if self.position.y > 1056 && !dead:
+		death_sound.play()
+		dead = true
+		death_time = current_time()
+		
+		
 	if is_on_floor():
 		has_jumped = false
 		grounded_time = current_time() + delta * grace_frames * 1000
 	
 	if Input.is_action_pressed("jump"):
-		if (Input.is_action_just_pressed("jump")):
-			audio_stream_player.play()
 		motion.y += LGRAV
 		if(motion.y > FALLSPEED):
 			motion.y = FALLSPEED
@@ -88,6 +101,7 @@ func _physics_process(delta):
 		jump_buffer = current_time() + delta*jump_buffer_frames*1000 
 		
 	if jump_buffer > current_time() && grounded_time > current_time() && !has_jumped:
+		audio_stream_player.play()
 		grounded_time += 0.1
 		has_jumped = true
 		motion.y = -MAXSPEED*2
