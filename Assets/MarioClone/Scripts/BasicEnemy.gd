@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+onready var audio_stream_player = $AudioStreamPlayer
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -29,6 +29,7 @@ func _physics_process(delta):
 	if collision:
 		motion = motion.slide(collision.normal)
 		if collision.normal == Vector2(0,1):
+			audio_stream_player.play()
 			queue_free()
 		
 	

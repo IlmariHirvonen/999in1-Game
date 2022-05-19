@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PlumberJump.wav-87f683a7012a6295a83e4f0f1e73ddc7.sample"
+
+[deps]
+
+source_file="res://Assets/RealMarioClone/Sounds/PlumberJump.wav"
+dest_files=[ "res://.import/PlumberJump.wav-87f683a7012a6295a83e4f0f1e73ddc7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

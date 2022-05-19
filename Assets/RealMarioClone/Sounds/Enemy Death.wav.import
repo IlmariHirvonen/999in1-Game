@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Enemy Death.wav-f26b801d62a00fedef19959eb5c868fd.sample"
+
+[deps]
+
+source_file="res://Assets/RealMarioClone/Sounds/Enemy Death.wav"
+dest_files=[ "res://.import/Enemy Death.wav-f26b801d62a00fedef19959eb5c868fd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

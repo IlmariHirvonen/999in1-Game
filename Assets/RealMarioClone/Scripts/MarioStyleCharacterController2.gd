@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-onready var animation_tree = $AnimationPlayer
+onready var animation_tree = $AnimationTree
+onready var audio_stream_player = $AudioStreamPlayer
 onready var state_machine = animation_tree.get("parameters/playback")
 
 onready var camera = get_parent().get_node("Camera2D")
@@ -16,6 +17,9 @@ var jump_buffer = 0
 var camera_offset = -800
 var has_jumped = false
 
+var turned_right = true
+
+
 
 
 const UP = Vector2(0,-1)
@@ -29,10 +33,12 @@ const MAXSPEED = 500
 var motion = Vector2()
 func _ready():
 	time_start = current_time()
+	state_machine.start("Idle")
 
 
 	
 func _process(delta):
+
 	
 	if camera.position.x < player.position.x-1744/2:
 		camera.position.x = player.position.x-1744/2
@@ -50,6 +56,8 @@ func _physics_process(delta):
 		grounded_time = current_time() + delta * grace_frames * 1000
 	
 	if Input.is_action_pressed("jump"):
+		if (Input.is_action_just_pressed("jump")):
+			audio_stream_player.play()
 		motion.y += LGRAV
 		if(motion.y > FALLSPEED):
 			motion.y = FALLSPEED
@@ -60,14 +68,21 @@ func _physics_process(delta):
 		
 	
 	if Input.is_action_pressed("right"):
+		if (!turned_right):
+			self.scale.x = -1
+			turned_right = true
 		state_machine.travel("Run")
+
 		motion.x = MAXSPEED
 	elif Input.is_action_pressed("left"):
+		if turned_right:
+			self.scale.x = -1
+			turned_right = false
 		state_machine.travel("Run")
 		motion.x = -MAXSPEED
 	else:
-		#state_machine.travel("Idle")
 		motion.x = 0
+		state_machine.travel("Idle")
 		
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer = current_time() + delta*jump_buffer_frames*1000 
