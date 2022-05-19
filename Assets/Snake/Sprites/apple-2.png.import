@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Snake_spritesheet.png-4b6be64f334561cc169c8e953ecf2d99.stex"
+path="res://.import/apple-2.png-1174dee25622ccfd18c5ee3c85bb3e55.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Snake/Sprites/Snake_spritesheet.png"
-dest_files=[ "res://.import/Snake_spritesheet.png-4b6be64f334561cc169c8e953ecf2d99.stex" ]
+source_file="res://Assets/Snake/Sprites/apple-2.png"
+dest_files=[ "res://.import/apple-2.png-1174dee25622ccfd18c5ee3c85bb3e55.stex" ]
 
 [params]
 
