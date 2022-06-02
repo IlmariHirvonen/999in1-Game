@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Scenes/enemies.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/SI-Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Scenes/SI-Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/UI/PauseMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/UI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/RealMarioClone/space_invaders.wav" type="AudioStream" id=6]
 
 [node name="World" type="Node2D"]
 
@@ -158,3 +159,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1024.0
 margin_bottom = 600.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 5.668
+autoplay = true
