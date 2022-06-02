@@ -8,9 +8,11 @@
 [node name="GUI" parent="." instance=ExtResource( 1 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 2048.0
-margin_bottom = 1200.0
+margin_right = 1024.0
+margin_bottom = 600.0
