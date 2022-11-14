@@ -2,7 +2,7 @@
 
 
 ### Projektin kuvaus
-Peliprojektimme on tarkoitus emuloida vanhanaikaista bootleg peliä missä on esim 999in1 peliä. Eli paljon pelejä yhdessä pelissä. 
+Projektin pääasiallinen tavoite on perehtyä Godot pelimoottoriin ja opetella sen käyttöä. Peliprojektimme on tarkoitus emuloida vanhanaikaista bootleg peliä missä on esim 999in1 peliä. Eli paljon pelejä yhdessä pelissä. 
 
 ### Projektin tavoitteet ja muita juttuja
 
